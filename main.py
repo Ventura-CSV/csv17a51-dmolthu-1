@@ -44,8 +44,8 @@ def is_injective(mapping: dict) -> bool:
 def is_surjective(mapping: dict, target: set) -> bool:
     """Return True if f is onto (range == target)."""
     # === TODO ===
-    for value in mapping.values():
-        if value not in mapping.keys():
+    for t in target:
+        if t not in mapping.values():
             return False
     return True
     pass
@@ -55,6 +55,6 @@ def is_surjective(mapping: dict, target: set) -> bool:
 def is_bijective(mapping: dict, target: set) -> bool:
     """Return True if f is both injective and surjective."""
     # === TODO ===
-    # Your code here
+    return is_injective(mapping) and is_surjective(mapping, target)
     pass
     # === END TODO ===
