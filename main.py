@@ -4,7 +4,7 @@ from __future__ import annotations
 def get_domain(mapping: dict) -> set:
     """Return the domain X (all inputs of the function)."""
     # === TODO ===
-    # Your code here
+    return set(mapping.keys())
     pass
     # === END TODO ===
 
@@ -12,7 +12,7 @@ def get_domain(mapping: dict) -> set:
 def get_range(mapping: dict) -> set:
     """Return the range — the set of outputs actually mapped to."""
     # === TODO ===
-    # Your code here
+    return set(mapping.values())
     pass
     # === END TODO ===
 
@@ -20,7 +20,10 @@ def get_range(mapping: dict) -> set:
 def is_well_defined(mapping: dict, target: set) -> bool:
     """Return True if every output value is in the target set."""
     # === TODO ===
-    # Your code here
+    for value in mapping.values():
+        if value not in target:
+            return False
+    return True
     pass
     # === END TODO ===
 
@@ -28,7 +31,12 @@ def is_well_defined(mapping: dict, target: set) -> bool:
 def is_injective(mapping: dict) -> bool:
     """Return True if f is one-to-one (no two inputs map to same output)."""
     # === TODO ===
-    # Your code here
+    s = set()
+    for value in mapping.values():
+        if value in s:
+            return False
+        s.add(value)
+    return True
     pass
     # === END TODO ===
 
@@ -36,7 +44,10 @@ def is_injective(mapping: dict) -> bool:
 def is_surjective(mapping: dict, target: set) -> bool:
     """Return True if f is onto (range == target)."""
     # === TODO ===
-    # Your code here
+    for value in mapping.values():
+        if value not in mapping.keys():
+            return False
+    return True
     pass
     # === END TODO ===
 
